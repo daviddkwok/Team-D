@@ -1,0 +1,1 @@
+print('profit and loss')
