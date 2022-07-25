@@ -1,5 +1,4 @@
 from pathlib import Path
 
-fp = Path.cwd()/'profit-and-loss-thb.csv'
-print(Path.cwd())
+fp = Path.cwd()/'csv_reports'/'profit-and-loss-thb.csv'
 print(fp.exists())
