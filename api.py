@@ -14,8 +14,8 @@ data = response.json()
 # gets the data of realtime currency exchange rate and assigned to an object exchange rate
 exchange_rate_dict = data['Realtime Currency Exchange Rate']
 
-# gets the exchange rate from the dictionary and assigned to an object exchange rate
+# gets the exchange rate from the dictionary and stores the value in an object forex
 forex = exchange_rate_dict['5. Exchange Rate']
 
-
+# shows the value of the exchange rate 
 print(forex)
