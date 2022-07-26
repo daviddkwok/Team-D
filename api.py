@@ -8,8 +8,14 @@ url = f"https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_c
 # to request access to the data and assigned it to a object response
 response = requests.get(url)
 
-# retrieve data with .json from response and save it to a object data
+# retrieve data with .json from response and assigned it to a object data
 data = response.json()
-exchange_rate = data['Realtime Currency Exchange Rate']
-forex = exchange_rate['5. Exchange Rate']
+
+# gets the data of realtime currency exchange rate and assigned to an object exchange rate
+exchange_rate_dict = data['Realtime Currency Exchange Rate']
+
+# gets the exchange rate from the dictionary and assigned to an object exchange rate
+forex = exchange_rate_dict['5. Exchange Rate']
+
+
 print(forex)
