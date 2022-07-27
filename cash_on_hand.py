@@ -1,7 +1,7 @@
 from pathlib import Path
 import csv
 
-fp = Path.cwd()/'csv_reports'/'cash-on-hand-thb.csv'
+fp = Path.cwd()/'csv_reports'/'cash-on-hand-usd.csv'
 print(fp.exists())
 
 with fp.open(mode='r',encoding='UTF-8', newline='') as file:
