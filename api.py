@@ -1,5 +1,6 @@
 import requests
 
+
 api_key = 'M3TUAJLWM4IJG8U4'
 
 # the API URL link for exchange rate from USD to SGD
@@ -19,3 +20,4 @@ forex = exchange_rate_dict['5. Exchange Rate']
 
 # shows the value of the exchange rate 
 print(forex)
+
