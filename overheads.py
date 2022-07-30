@@ -2,7 +2,7 @@ from pathlib import Path
 import csv
 
 fp = Path.cwd()/'csv_reports'/'overheads-day-40.csv'
-print(fp.exists())
+
 empty_list = []
 overhead = []
 with fp.open(mode='r',encoding='UTF-8', newline='') as file:
@@ -13,7 +13,6 @@ with fp.open(mode='r',encoding='UTF-8', newline='') as file:
         overhead.append(line[0])
 max_amount = max(empty_list)
 index = empty_list.index(max_amount)
-print(max_amount)
 highestoverhead = (overhead[index])
 uppercase = highestoverhead.upper()
 
