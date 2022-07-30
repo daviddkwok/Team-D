@@ -13,8 +13,8 @@ with fp.open(mode='r',encoding='UTF-8', newline='') as file:
         overhead.append(line[0])
 max_amount = max(empty_list)
 index = empty_list.index(max_amount)
-highestoverhead = (overhead[index])
-uppercase = highestoverhead.upper()
+overheads = (overhead[index])
+upper_overheads = overheads.upper()
 
-message = f'[HIGHEST OVERHEADS] {uppercase}: SGD{max_amount}'
+message = f'[HIGHEST OVERHEADS] {upper_overheads}: SGD{max_amount}'
 print(message)
