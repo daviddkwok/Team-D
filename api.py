@@ -18,8 +18,8 @@ exchange_rate_dict = data['Realtime Currency Exchange Rate']
 # gets the exchange rate from the dictionary and stores the value in an object forex
 forex = exchange_rate_dict['5. Exchange Rate']
 
-# shows the value of the exchange rate 
-print(forex) 
-
+# 
 api_message = f'[REAL TIME CURRENCY CONVERSION RATE] USD1 = SGD{forex}'
+
+# shows the value of the exchange rate 
 print(api_message)
