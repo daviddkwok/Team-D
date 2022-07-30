@@ -12,6 +12,7 @@ response = requests.get(url)
 # retrieve data with .json from response and assigned it to a object data
 data = response.json()
 
+print(data)
 # gets the data of realtime currency exchange rate and assigned to an object exchange rate
 exchange_rate_dict = data['Realtime Currency Exchange Rate']
 
