@@ -16,7 +16,7 @@ with fp.open(mode='r',encoding='UTF-8', newline='') as file:
         #     print(day_list)
     if empty_list[position]>empty_list[position+1]:
         print(day_list)
-    
+        
 #     print(empty_list[1])
 # print(day_list)
 # print(empty_list)
