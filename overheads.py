@@ -1,45 +1,47 @@
 from pathlib import Path
 import csv
+import api
 
 # assigning the file path of overheads csv to fp
-fp = Path.cwd()/'csv_reports'/'overheads-day-40.csv'
-
+overhead_fp = Path.cwd()/'csv_reports'/'overheads-day-40.csv'
+summary__path = Path.cwd()/'summary_report.txt'
 # creating two empty lists for empty list and overhead
 empty_list = []
 overhead_list = []
 
-# opening csv file to read with a variable 'file'
-with fp.open(mode='r',encoding='UTF-8', newline='') as file:
+def overhead_function(forex):
+    # opening csv file to read with a variable 'file'
+    with overhead_fp.open(mode='r',encoding='UTF-8', newline='') as file:
     
-    #assign .reader() object to reader to read file
-    reader = csv.reader(file)
+        #assign .reader() object to reader to read file
+        reader = csv.reader(file)
 
-    # next() to skip the header
-    next(reader)
+        # next() to skip the header
+        next(reader)
 
-    # create for loop for line in text 
-    for line in reader:
+        # create for loop for line in text 
+        for line in reader:
 
-        # adds on the overhead categories to the overhead empty list
-        overhead_list.append(line[0])
+            # adds on the overhead categories to the overhead empty list
+            overhead_list.append(line[0])
 
-        # adds on the float overhead amounts to the empty_list
-        empty_list.append(float(line[1]))
+            # adds on the float overhead amounts to the empty_list
+            empty_list.append(float(line[1]))
 
-# using the max() function to find the maximum value in the empty list and assigns to variable, max_amount
-max_amount = max(empty_list)
+    # using the max() function to find the maximum value in the empty list and assigns to variable, max_amount
+    max_amount = max(empty_list)
 
-# finding the index position of the max_amount value and assigns to variable, index 
-index = empty_list.index(max_amount)
+    # finding the index position of the max_amount value and assigns to variable, index 
+    index = empty_list.index(max_amount)
 
-# locates the position of the category by using the index position from the overhead list
-category = (overhead_list[index])
+    # locates the position of the category by using the index position from the overhead list
+    category = (overhead_list[index])
 
-# converts the category to all uppercase
-upper_overheads = category.upper()
+    # converts the category to all uppercase
+    upper_overheads = category.upper()
 
-# stores a message for highest overheads category and amount using f-strings
-message = f'[HIGHEST OVERHEADS] {upper_overheads}: SGD{max_amount}'
+    # stores a message for highest overheads category and amount using f-strings
+    message = f'[HIGHEST OVERHEADS] {upper_overheads}: SGD{max_amount*forex}'
 
-# shows the message
-print(message)
+    # shows the message
+    print(message)
