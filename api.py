@@ -1,10 +1,12 @@
+# importing
 import requests
 import csv
 from pathlib import Path
 
 
-
 def api_function():
+    """function 
+    """
     api_key = 'M3TUAJLWM4IJG8U4'
     summary_path = Path.cwd()/'summary_report.txt'
     # the API URL link for exchange rate from USD to SGD
