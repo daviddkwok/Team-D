@@ -2,7 +2,6 @@ from pathlib import Path
 import csv
 from api import forex
 
-
 def coh_function():
 
     coh_fp = Path.cwd()/'csv_reports'/'cash-on-hand-usd.csv'
