@@ -30,9 +30,9 @@ def overhead_function():
             empty_list.append(float(line[1]))
 
     # using the max() function to find the maximum value in the empty list and assigns to variable, max_amount
-    global max_amount
     max_amount = max(empty_list)
-    
+
+    # print(usd_max_amount)
     # finding the index position of the max_amount value and assigns to variable, index 
     index = empty_list.index(max_amount)
 
@@ -40,7 +40,6 @@ def overhead_function():
     category = (overhead_list[index])
 
     # converts the category to all uppercase
-    global upper_overheads
     upper_overheads = category.upper()
 
     # stores a message for highest overheads category and amount using f-strings
@@ -50,12 +49,9 @@ def overhead_function():
     print(message)
 
     # with summary_path(mode="w", encoding = 'UTF-8', newline = "") as file:
-    #     writer=csv.writer(file)
-    #     writer.writerows('hello')
-
+    #     file.writerows(f'[HIGHEST OVERHEADS] {upper_overheads}: SGD{(max_amount)}')
+    with summary_path.open(mode='a', encoding='UTF-8', newline="") as file:
+        file.writelines(f"\n[HIGHEST OVERHEADS] {upper_overheads}: SGD{(max_amount)}")
 overhead_function()
 
 
-# with summary_path(mode="w", encoding = 'UTF-8', newline = "") as file:
-#     writer=csv.writer(file)
-#     writer.writerows('hello')
