@@ -2,15 +2,15 @@ from pathlib import Path
 import csv
 from api import forex
 
-# assigning the file path of overheads csv to fp
-overhead_fp = Path.cwd()/'csv_reports'/'overheads-day-40.csv'
-summary_path = Path.cwd()/'summary_report.txt'
-
-# creating two empty lists for empty list and overhead
-empty_list = []
-overhead_list = []
-
 def overhead_function():
+
+    # assigning the file path of overheads csv to fp
+    overhead_fp = Path.cwd()/'csv_reports'/'overheads-day-40.csv'
+    summary_path = Path.cwd()/'summary_report.txt'
+
+    # creating two empty lists for empty list and overhead
+    empty_list = []
+    overhead_list = []
     # opening csv file to read with a variable 'file'
     with overhead_fp.open(mode='r',encoding='UTF-8', newline='') as file:
     
@@ -42,16 +42,8 @@ def overhead_function():
     # converts the category to all uppercase
     upper_overheads = category.upper()
 
-    # stores a message for highest overheads category and amount using f-strings
-    message = f'[HIGHEST OVERHEADS] {upper_overheads}: SGD{(max_amount)}'
-
-    # shows the message
-    print(message)
-
-    # with summary_path(mode="w", encoding = 'UTF-8', newline = "") as file:
-    #     file.writerows(f'[HIGHEST OVERHEADS] {upper_overheads}: SGD{(max_amount)}')
     with summary_path.open(mode='a', encoding='UTF-8', newline="") as file:
-        file.writelines(f"\n[HIGHEST OVERHEADS] {upper_overheads}: SGD{(max_amount)}")
+        file.write(f"\n[HIGHEST OVERHEADS] {upper_overheads}: SGD{(max_amount)}")
 overhead_function()
 
 

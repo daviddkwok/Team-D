@@ -2,13 +2,14 @@ from pathlib import Path
 import csv
 
 
-profit_lossfp = Path.cwd()/'csv_reports'/'profit-and-loss-usd.csv'
-summary_path = Path.cwd()/'summary_report.txt'
 
-day_list = []    
-pl_list = []
+
 def profitloss_function():
 
+    day_list = []    
+    pl_list = []
+    profit_lossfp = Path.cwd()/'csv_reports'/'profit-and-loss-usd.csv'
+    summary_path = Path.cwd()/'summary_report.txt'
     with profit_lossfp.open(mode='r',encoding='UTF-8', newline='') as file:
         reader = csv.reader(file)
         next(reader)
@@ -19,10 +20,9 @@ def profitloss_function():
         pl_deflict = 0 
         while index+1<len(pl_list):
             if float(pl_list[index])>float(pl_list[index+1]):
-                pl_deflict = float(pl_list[index])- float(pl_list[index+1])
-
+                pl_deficit = float(pl_list[index])- float(pl_list[index+1])
                 with summary_path.open(mode='a', encoding='UTF-8') as file:
-                    file.writelines(f'\n[PROFIT DEFICIT] DAY: {day_list[index+1]}, AMOUNT: SGD{pl_deflict}')
+                    file.writelines(f'\n[PROFIT DEFICIT] DAY: {day_list[index+1]}, AMOUNT: SGD{pl_deficit}')
             index = index+1
 
         if pl_deflict == 0:

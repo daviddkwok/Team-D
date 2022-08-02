@@ -2,12 +2,11 @@ import requests
 import csv
 from pathlib import Path
 
-api_key = 'M3TUAJLWM4IJG8U4'
-summary_path = Path.cwd()/'summary_report.txt'
-summary_path.touch()
+
 
 def api_function():
-
+    api_key = 'M3TUAJLWM4IJG8U4'
+    summary_path = Path.cwd()/'summary_report.txt'
     # the API URL link for exchange rate from USD to SGD
     url = f"https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency=USD&to_currency=SGD&apikey={api_key}"
 
