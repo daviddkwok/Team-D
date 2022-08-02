@@ -1,10 +1,10 @@
 from pathlib import Path
 import csv
-import api
+from api import forex
 
 # assigning the file path of overheads csv to fp
 overhead_fp = Path.cwd()/'csv_reports'/'overheads-day-40.csv'
-summary__path = Path.cwd()/'summary_report.txt'
+summary_path = Path.cwd()/'summary_report.txt'
 # creating two empty lists for empty list and overhead
 empty_list = []
 overhead_list = []
@@ -40,8 +40,11 @@ def overhead_function(forex):
     # converts the category to all uppercase
     upper_overheads = category.upper()
 
+
     # stores a message for highest overheads category and amount using f-strings
     message = f'[HIGHEST OVERHEADS] {upper_overheads}: SGD{max_amount*forex}'
 
     # shows the message
     print(message)
+
+overhead_function(forex)
