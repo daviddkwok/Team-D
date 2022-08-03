@@ -13,10 +13,10 @@ def profitloss_function(forex):
     and appends to the summary report
     """
 
-    # assigning the file path of profit and loss csv to profit_lossfp
+    # assigning the file path of profit and loss csv file to profit_lossfp
     profit_lossfp = Path.cwd()/'csv_reports'/'profit-and-loss-usd.csv'
 
-    # assigning the file path of summary report to summary_path
+    # assigning the file path of summary report file to summary_path
     summary_path = Path.cwd()/'summary_report.txt'
 
     # creates two empty lists for day list and pl list

@@ -15,7 +15,7 @@ def coh_function(forex):
     # assigning the file path of cash on hand csv to coh_fp
     coh_fp = Path.cwd()/'csv_reports'/'cash-on-hand-usd.csv'
 
-    # assigning the file path of summary report to summary_path
+    # assigning the file path of summary report file to summary_path
     summary_path = Path.cwd()/'summary_report.txt'
 
     # creating two empty lists for day list and amount list

@@ -12,7 +12,7 @@ def overhead_function(forex):
     # assigning the file path of overheads csv to overhead_fp
     overhead_fp = Path.cwd()/'csv_reports'/'overheads-day-40.csv'
 
-    # assigning the file path of summary report to summary_path
+    # assigning the file path of summary report file to summary_path
     summary_path = Path.cwd()/'summary_report.txt'
 
     # creating two empty lists for amount list and overhead list

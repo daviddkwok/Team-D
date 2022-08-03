@@ -11,7 +11,7 @@ def api_function():
 
     api_key = 'M3TUAJLWM4IJG8U4'
 
-    # assigning the file path of summary report to summary_path
+    # assigning the file path of summary report file to summary_path
     summary_path = Path.cwd()/'summary_report.txt'
 
     # the API URL link for exchange rate from USD to SGD
