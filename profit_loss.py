@@ -5,8 +5,11 @@ from api import forex
 def profitloss_function(forex):
 
     """
-    Function appends the date and profit/loss on two empty lists
-    Compares the profit/loss values to find if there is a deficit
+    Profit loss function with the variable forex
+    function opens the profit and loss csv file
+    appends the date and profit/loss on two empty lists
+    checks if there is a net profit deficit between the days
+    (if any) calculates the pl deficit 
     and appends to the summary report
     """
 
@@ -38,22 +41,42 @@ def profitloss_function(forex):
             # adds on the float profit and loss amount to the profit loss empty list
             pl_list.append(float(line[4]))
 
-        # assigns 0 to a variable, index
+        # creating an empty variable, cash_deficit
         index = 0
 
-        # assigns 0 to a variable, pl deficit
+        # creating an empty variable, pl_deficit
         pl_deflict = 0 
 
-        # 
-        while index+1<len(pl_list):
-            if float(pl_list[index])>float(pl_list[index+1]):
-                pl_deficit = float(pl_list[index])- float(pl_list[index+1])
-                with summary_path.open(mode='a', encoding='UTF-8') as file:
-                    file.writelines(f'\n[PROFIT DEFICIT] DAY: {day_list[index+1]}, AMOUNT: SGD{pl_deficit*forex}')
-            index = index+1
+        # using while loop to run through the all the days in the day list
+        while index+1<len(day_list):
 
+            # if function to check if the earlier float p/l amount is larger than the following day
+            if float(pl_list[index])>float(pl_list[index+1]):
+
+                # calculates the difference between the earlier amount and the following day amount and assigns to a variable pl_deficit
+                pl_deficit = float(pl_list[index])- float(pl_list[index+1])
+
+                # converts the pl_deficit from usd to sgd by multiplying using the forex variable
+                sgd_pl_deficit = pl_deficit*forex
+                
+                # opening the summary report to append with a variable 'file' 
+                with summary_path.open(mode='a', encoding='UTF-8') as file:
+
+                    # to append multiple lines of the f string onto the file 
+                    # and iterate over the day list and sgd pl deficit using writerows()
+                    file.writelines(f'\n[PROFIT DEFICIT] DAY: {day_list[index+1]}, AMOUNT: SGD{sgd_pl_deficit}')
+
+            # adds 1 to the index every time it loops
+            index = index + 1
+
+        #  if function to check if pl_deficit is has a value of 0
         if pl_deflict == 0:
+
+            # opening summary report to append with a variable 'file' 
             with summary_path.open(mode='a',encoding='UTF-8') as file:
+
+                # appends the message of net profit surplus onto the summary report if there is no net profit deficit
                 file.writelines('\n[NET PROFIT SURPLUS] NET PROFIT ON EACH DAY IS HIGHER THAN THE PREVIOUS DAY')
 
+# recalls the profit loss function
 profitloss_function(forex)

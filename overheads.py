@@ -52,7 +52,7 @@ def overhead_function(forex):
     # converts the category to all uppercase
     upper_overheads = category.upper()
 
-    # opening summary report to append with a variable 'file' 
+    # opening the summary report to append with a variable 'file' 
     with summary_path.open(mode='a', encoding='UTF-8', newline="") as file:
 
         # append the highest overhead category and amount onto the summary report
