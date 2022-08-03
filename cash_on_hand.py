@@ -2,7 +2,7 @@ from pathlib import Path
 import csv
 from api import forex
 
-def coh_function():
+def coh_function(forex):
     """
     Function opens the cash on hand csv file 
     checks if there is a cash deficit between the days
@@ -54,4 +54,4 @@ def coh_function():
             with summary_path.open(mode='a',encoding='UTF-8') as file:
                 file.write('\n[CASH SURPLUS] CASH ON EACH DAY IS HIGHER THAN THE PREVIOUS DAY')
 
-coh_function()
+coh_function(forex)
