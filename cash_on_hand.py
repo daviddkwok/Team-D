@@ -42,7 +42,7 @@ def coh_function(forex):
         # assigns 0 to a variable, cash deficit
         cash_deficit = 0 
 
-
+        
         while index+1<len(amount_list):
             if float(amount_list[index])>float(amount_list[index+1]):
                 cash_deficit = (amount_list[index])- (amount_list[index+1])
