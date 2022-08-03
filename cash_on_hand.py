@@ -23,7 +23,7 @@ def coh_function(forex):
     amount_list = []
 
     # opening cash on hand csv file to read with a variable 'file'
-    with coh_fp.open(mode='r',encoding='UTF-8', newline='') as file:
+    with coh_fp.open(mode = 'r',encoding = 'UTF-8', newline = "") as file:
 
         # assign .reader() object to reader to read file
         reader = csv.reader(file)
@@ -47,32 +47,32 @@ def coh_function(forex):
         cash_deficit = 0
 
         # using while loop to run through the all the days in the day list
-        while index+1<len(day_list):
+        while index + 1 < len(day_list):
 
             # if function to check if the earlier float cash on hand amount is larger than the following day
-            if float(amount_list[index])>float(amount_list[index+1]):
+            if float(amount_list[index]) > float(amount_list[index + 1]):
 
                 # calculates the difference between the earlier amount and the following day amount and assigns to a variable cash_deficit
-                cash_deficit = (amount_list[index])- (amount_list[index+1])
+                cash_deficit = (amount_list[index]) - (amount_list[index + 1])
 
                 # converts the cash_deficit from usd to sgd by multiplying using the forex variable
-                sgd_cash_deficit = cash_deficit*forex
+                sgd_cash_deficit = cash_deficit * forex
 
                 # opening the summary report to append with a variable 'file' 
-                with summary_path.open(mode='a', encoding='UTF-8', newline = '') as file:
+                with summary_path.open(mode = 'a', encoding = 'UTF-8', newline = "") as file:
 
                     # to append multiple lines of the f string onto the file 
                     # and iterate over the day list and sgd cash deficit using writerows()
-                    file.writelines(f'\n[CASH DEFICIT] DAY: {day_list[index+1]}, AMOUNT: SGD{sgd_cash_deficit}')
+                    file.writelines(f'\n[CASH DEFICIT] DAY: {day_list[index + 1]}, AMOUNT: SGD{sgd_cash_deficit}')
 
             # adds 1 to the index every time it loops
-            index = index+1
+            index = index + 1
 
         # if function to check if cash_deficit is has a value of 0
         if cash_deficit == 0:
 
             # opening summary report to append with a variable 'file' 
-            with summary_path.open(mode='a',encoding='UTF-8', newline='') as file:
+            with summary_path.open(mode = 'a', encoding= 'UTF-8', newline= '') as file:
 
                 # appends the message of cash surplus onto the summary report if there is no cash deficit
                 file.write('\n[CASH SURPLUS] CASH ON EACH DAY IS HIGHER THAN THE PREVIOUS DAY')

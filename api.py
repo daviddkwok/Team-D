@@ -36,7 +36,7 @@ def api_function():
     forex = float(exchangerate)
 
     # opening the summary report to write with the variable file
-    with summary_path.open(mode='w', encoding='UTF-8', newline="") as file:
+    with summary_path.open(mode = 'w', encoding = 'UTF-8', newline = "") as file:
 
         # to write the message of real time currency conversion rate from 1 USD to SGD
         file.write(f"[REAL TIME CURRENCY CONVERSION RATE] USD1 = SGD{forex}")

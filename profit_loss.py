@@ -24,7 +24,7 @@ def profitloss_function(forex):
     pl_list = []
 
     # opening profit loss csv file to read with a variable 'file'
-    with profit_lossfp.open(mode='r',encoding='UTF-8', newline='') as file:
+    with profit_lossfp.open(mode = 'r',encoding = 'UTF-8', newline = "") as file:
 
         # assign .reader() object to reader to read file
         reader = csv.reader(file)
@@ -48,23 +48,23 @@ def profitloss_function(forex):
         pl_deflict = 0 
 
         # using while loop to run through the all the days in the day list
-        while index+1<len(day_list):
+        while index + 1 < len(day_list):
 
             # if function to check if the earlier float p/l amount is larger than the following day
-            if float(pl_list[index])>float(pl_list[index+1]):
+            if float(pl_list[index]) > float(pl_list[index + 1]):
 
                 # calculates the difference between the earlier amount and the following day amount and assigns to a variable pl_deficit
-                pl_deficit = float(pl_list[index])- float(pl_list[index+1])
+                pl_deficit = float(pl_list[index]) - float(pl_list[index + 1])
 
                 # converts the pl_deficit from usd to sgd by multiplying using the forex variable
-                sgd_pl_deficit = pl_deficit*forex
+                sgd_pl_deficit = pl_deficit * forex
                 
                 # opening the summary report to append with a variable 'file' 
-                with summary_path.open(mode='a', encoding='UTF-8') as file:
+                with summary_path.open(mode = 'a', encoding = 'UTF-8', newline = "") as file:
 
                     # to append multiple lines of the f string onto the file 
                     # and iterate over the day list and sgd pl deficit using writerows()
-                    file.writelines(f'\n[PROFIT DEFICIT] DAY: {day_list[index+1]}, AMOUNT: SGD{sgd_pl_deficit}')
+                    file.writelines(f'\n[PROFIT DEFICIT] DAY: {day_list[index + 1]}, AMOUNT: SGD{sgd_pl_deficit}')
 
             # adds 1 to the index every time it loops
             index = index + 1
@@ -73,7 +73,7 @@ def profitloss_function(forex):
         if pl_deflict == 0:
 
             # opening summary report to append with a variable 'file' 
-            with summary_path.open(mode='a',encoding='UTF-8') as file:
+            with summary_path.open(mode = 'a',encoding = 'UTF-8', newline = "") as file:
 
                 # appends the message of net profit surplus onto the summary report if there is no net profit deficit
                 file.writelines('\n[NET PROFIT SURPLUS] NET PROFIT ON EACH DAY IS HIGHER THAN THE PREVIOUS DAY')

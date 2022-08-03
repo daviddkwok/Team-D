@@ -20,7 +20,7 @@ def overhead_function(forex):
     overhead_list = []
     
     # opening overhead csv file to read with a variable 'file'
-    with overhead_fp.open(mode='r',encoding='UTF-8', newline='') as file:
+    with overhead_fp.open(mode = 'r', encoding = 'UTF-8', newline=  "") as file:
     
         # assign .reader() object to reader to read file
         reader = csv.reader(file)
@@ -41,7 +41,7 @@ def overhead_function(forex):
     max_amount = max(amount_list)
 
     # converts the max_amount from usd to sgd by multiplying using the forex variable
-    sgd_max_amount = max_amount*forex
+    sgd_max_amount = max_amount * forex
 
     # finding the index position of the max_amount value and assigns to variable, index 
     index = amount_list.index(max_amount)
@@ -53,7 +53,7 @@ def overhead_function(forex):
     upper_overheads = category.upper()
 
     # opening the summary report to append with a variable 'file' 
-    with summary_path.open(mode='a', encoding='UTF-8', newline="") as file:
+    with summary_path.open(mode = 'a', encoding = 'UTF-8', newline = "") as file:
 
         # append the highest overhead category and amount onto the summary report
         file.write(f"\n[HIGHEST OVERHEADS] {upper_overheads}: SGD{(sgd_max_amount)}")
