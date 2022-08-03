@@ -22,8 +22,11 @@ def api_function():
     exchange_rate_dict = data['Realtime Currency Exchange Rate']
 
     # gets the exchange rate from the dictionary and stores the value in an object forex
+    
+    exchangerate = (exchange_rate_dict['5. Exchange Rate'])
+    
     global forex
-    forex = exchange_rate_dict['5. Exchange Rate']
+    forex = float(exchangerate)
     with summary_path.open(mode='w', encoding='UTF-8', newline="") as file:
         file.writelines(f"[REAL TIME CURRENCY CONVERSION RATE] USD1 = SGD{forex}")
 

@@ -2,8 +2,7 @@ from pathlib import Path
 import csv
 from api import forex
 
-def overhead_function():
-
+def overhead_function(forex):
     """
     Function opens the overhead csv file to read
     finds the max value in the overhead csv file
@@ -41,6 +40,8 @@ def overhead_function():
     # using the max() function to find the maximum value in the empty list and assigns to variable, max_amount
     max_amount = max(amount_list)
 
+    usd_max_amount = max_amount*forex
+
     # finding the index position of the max_amount value and assigns to variable, index 
     index = amount_list.index(max_amount)
 
@@ -54,7 +55,7 @@ def overhead_function():
     with summary_path.open(mode='a', encoding='UTF-8', newline="") as file:
 
         # append the highest overhead category and amount onto the summary report
-        file.write(f"\n[HIGHEST OVERHEADS] {upper_overheads}: SGD{(max_amount)}")
+        file.write(f"\n[HIGHEST OVERHEADS] {upper_overheads}: SGD{(usd_max_amount)}")
 
 # recalls the overhead function 
-overhead_function()
+overhead_function(forex)
