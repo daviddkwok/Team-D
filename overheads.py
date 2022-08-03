@@ -2,7 +2,7 @@ from pathlib import Path
 import csv
 from api import forex
 
-def overhead_function(forex):
+def overhead_function():
     """
     Function opens the overhead csv file to read
     finds the max value in the overhead csv file
@@ -58,4 +58,4 @@ def overhead_function(forex):
         file.write(f"\n[HIGHEST OVERHEADS] {upper_overheads}: SGD{(usd_max_amount)}")
 
 # recalls the overhead function 
-overhead_function(forex)
+overhead_function()

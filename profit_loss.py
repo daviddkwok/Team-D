@@ -2,9 +2,7 @@ from pathlib import Path
 import csv
 from api import forex
 
-
-
-def profitloss_function(forex):
+def profitloss_function():
 
     day_list = []    
     pl_list = []
@@ -29,4 +27,4 @@ def profitloss_function(forex):
             with summary_path.open(mode='a',encoding='UTF-8') as file:
                 file.writelines('\n[NET PROFIT SURPLUS] NET PROFIT ON EACH DAY IS HIGHER THAN THE PREVIOUS DAY')
 
-profitloss_function(forex)
+profitloss_function()
