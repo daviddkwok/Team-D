@@ -12,7 +12,7 @@ def coh_function(forex):
     and appends to the summary report
     """
 
-    # assigning the file path of cash on hand csv to coh_fp
+    # assigning the file path of cash on hand csv file to coh_fp
     coh_fp = Path.cwd()/'csv_reports'/'cash-on-hand-usd.csv'
 
     # assigning the file path of summary report file to summary_path
@@ -25,7 +25,7 @@ def coh_function(forex):
     # opening cash on hand csv file to read with a variable 'file'
     with coh_fp.open(mode = 'r',encoding = 'UTF-8', newline = "") as file:
 
-        # assign .reader() object to reader to read file
+        # assign csv.reader() object to reader to read the csv file
         reader = csv.reader(file)
 
         # next() to skip the header
@@ -34,7 +34,7 @@ def coh_function(forex):
         # create for loop for line in reader
         for line in reader:
 
-            # adds on the float days to the day empty list
+            # adds on the days to the day empty list
             day_list.append(float(line[0]))
 
             # adds on the float cash on hand amount to the amount empty list
@@ -46,13 +46,13 @@ def coh_function(forex):
         # creating an empty variable, cash_deficit
         cash_deficit = 0
 
-        # using while loop to run through the all the days in the day list
+        # using while loop to run through all the days in the day list
         while index + 1 < len(day_list):
 
             # if function to check if the earlier float cash on hand amount is larger than the following day
             if float(amount_list[index]) > float(amount_list[index + 1]):
 
-                # calculates the difference between the earlier amount and the following day amount and assigns to a variable cash_deficit
+                # calculates the difference between the earlier amount and the following day amount and assigns to the empty variable 'cash_deficit'
                 cash_deficit = (amount_list[index]) - (amount_list[index + 1])
 
                 # converts the cash_deficit from usd to sgd by multiplying using the forex variable
@@ -72,7 +72,7 @@ def coh_function(forex):
         if cash_deficit == 0:
 
             # opening summary report to append with a variable 'file' 
-            with summary_path.open(mode = 'a', encoding= 'UTF-8', newline= '') as file:
+            with summary_path.open(mode = 'a', encoding= 'UTF-8', newline= "") as file:
 
                 # appends the message of cash surplus onto the summary report if there is no cash deficit
                 file.write('\n[CASH SURPLUS] CASH ON EACH DAY IS HIGHER THAN THE PREVIOUS DAY')

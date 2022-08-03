@@ -3,7 +3,6 @@ import csv
 from api import forex
 
 def profitloss_function(forex):
-
     """
     Profit loss function with the variable forex
     function opens the profit and loss csv file
@@ -26,7 +25,7 @@ def profitloss_function(forex):
     # opening profit loss csv file to read with a variable 'file'
     with profit_lossfp.open(mode = 'r',encoding = 'UTF-8', newline = "") as file:
 
-        # assign .reader() object to reader to read file
+        # assign csv.reader() object to reader to read the csv file
         reader = csv.reader(file)
 
         # next() to skip the header
@@ -41,13 +40,13 @@ def profitloss_function(forex):
             # adds on the float profit and loss amount to the profit loss empty list
             pl_list.append(float(line[4]))
 
-        # creating an empty variable, cash_deficit
+        # creating an empty variable, index
         index = 0
 
         # creating an empty variable, pl_deficit
         pl_deflict = 0 
 
-        # using while loop to run through the all the days in the day list
+        # using while loop to run through all the days in the day list
         while index + 1 < len(day_list):
 
             # if function to check if the earlier float p/l amount is larger than the following day
@@ -76,7 +75,7 @@ def profitloss_function(forex):
             with summary_path.open(mode = 'a',encoding = 'UTF-8', newline = "") as file:
 
                 # appends the message of net profit surplus onto the summary report if there is no net profit deficit
-                file.writelines('\n[NET PROFIT SURPLUS] NET PROFIT ON EACH DAY IS HIGHER THAN THE PREVIOUS DAY')
+                file.write('\n[NET PROFIT SURPLUS] NET PROFIT ON EACH DAY IS HIGHER THAN THE PREVIOUS DAY')
 
 # recalls the profit loss function
 profitloss_function(forex)

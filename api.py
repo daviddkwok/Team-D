@@ -2,7 +2,6 @@ import requests
 import csv
 from pathlib import Path
 
-
 def api_function():
     """
     function extract the realtime currency exchange rate (usd to sgd) from the url link
@@ -43,6 +42,3 @@ def api_function():
 
 # recalls the api function
 api_function()
-
-
-
