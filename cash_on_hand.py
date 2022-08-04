@@ -5,7 +5,7 @@ from api import forex
 def coh_function(forex):
     """
     Cash on hand function with the variable forex
-    function opens the cash on hand csv file
+    function opens the cash on hand csv file to read
     appends the dates and cash on hand on two empty lists
     checks if there is a cash deficit between the days
     (if any) calculates the cash deficit 
@@ -61,14 +61,14 @@ def coh_function(forex):
                 # opening the summary report to append with a variable 'file' 
                 with summary_path.open(mode = 'a', encoding = 'UTF-8', newline = "") as file:
 
-                    # to append multiple lines of the f string onto the file 
-                    # and iterate over the day list and sgd cash deficit using writerows()
-                    file.writelines(f'\n[CASH DEFICIT] DAY: {day_list[index + 1]}, AMOUNT: SGD{sgd_cash_deficit}')
+                    # to append multiple lines of f strings onto the file 
+                    # and iterate over the day list and sgd cash deficit (1 dp) using writelines()
+                    file.writelines(f'\n[CASH DEFICIT] DAY: {day_list[index + 1]}, AMOUNT: SGD{round(sgd_cash_deficit,1)}')
 
             # adds 1 to the index every time it loops
             index = index + 1
 
-        # if function to check if cash_deficit is has a value of 0
+        # if function to check if cash_deficit still have a value of 0
         if cash_deficit == 0:
 
             # opening summary report to append with a variable 'file' 

@@ -4,7 +4,7 @@ from pathlib import Path
 
 def api_function():
     """
-    function extract the realtime currency exchange rate (usd to sgd) from the url link
+    function extracts the realtime currency exchange rate (usd to sgd) from the url link
     opens the summary report and writes the currency exchange rate
     """
 
@@ -19,13 +19,13 @@ def api_function():
     # to request access to the data and assigned it to a object response
     response = requests.get(url)
 
-    # retrieve data with .json from response and assigned it to a object data
+    # retrieve data with .json() from response and assigned it to a object data
     data = response.json()
 
-    # gets the data of realtime currency exchange rate and assigned to an object exchange rate
+    # gets the data of realtime currency exchange rate and assigned to an object exchange rate dict
     exchange_rate_dict = data['Realtime Currency Exchange Rate']
 
-    # gets the exchange rate from the dictionary and stores the value in an object forex
+    # gets the exchange rate from the dictionary and stores the value in an object exchange rate
     exchangerate = (exchange_rate_dict['5. Exchange Rate'])
     
     # making the variable 'forex' accessible in other files

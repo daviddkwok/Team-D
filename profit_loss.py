@@ -5,7 +5,7 @@ from api import forex
 def profitloss_function(forex):
     """
     Profit loss function with the variable forex
-    function opens the profit and loss csv file
+    function opens the profit and loss csv file to read
     appends the date and profit/loss on two empty lists
     checks if there is a net profit deficit between the days
     (if any) calculates the pl deficit 
@@ -61,14 +61,14 @@ def profitloss_function(forex):
                 # opening the summary report to append with a variable 'file' 
                 with summary_path.open(mode = 'a', encoding = 'UTF-8', newline = "") as file:
 
-                    # to append multiple lines of the f string onto the file 
-                    # and iterate over the day list and sgd pl deficit using writerows()
-                    file.writelines(f'\n[PROFIT DEFICIT] DAY: {day_list[index + 1]}, AMOUNT: SGD{sgd_pl_deficit}')
+                    # to append multiple lines of f strings onto the file 
+                    # and iterate over the day list and sgd pl deficit (whole number) using writelines()
+                    file.writelines(f'\n[PROFIT DEFICIT] DAY: {day_list[index + 1]}, AMOUNT: SGD{round(sgd_pl_deficit)}')
 
             # adds 1 to the index every time it loops
             index = index + 1
 
-        #  if function to check if pl_deficit is has a value of 0
+        #  if function to check if pl_deficit have a value of 0
         if pl_deflict == 0:
 
             # opening summary report to append with a variable 'file' 

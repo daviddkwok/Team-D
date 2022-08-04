@@ -4,8 +4,9 @@ from api import forex
 
 def overhead_function(forex):
     """
-    Overhead function opens the overhead csv file to read
-    finds the max value in the overhead csv file
+    Overhead function with the variable forex
+    function opens the overhead csv file to read
+    extracts the max value from the overhead csv file
     and appends to the summary report
     """
 
@@ -22,7 +23,7 @@ def overhead_function(forex):
     # opening overhead csv file to read with a variable 'file'
     with overhead_fp.open(mode = 'r', encoding = 'UTF-8', newline = "") as file:
     
-        # assign .reader() object to reader to read file
+        # assign csv.reader() object to reader to read the csv file
         reader = csv.reader(file)
 
         # next() to skip the header
@@ -34,10 +35,10 @@ def overhead_function(forex):
             # adds on the overhead categories to the overhead empty list
             overhead_list.append(line[0])
 
-            # adds on the float overhead amounts to the empty_list
+            # adds on the float overhead amounts to the amount empty list
             amount_list.append(float(line[1]))
 
-    # using the max() function to find the maximum value in the empty list and assigns to variable, max_amount
+    # using the max() function to find the maximum value in the amount list and assigns to variable, max_amount
     max_amount = max(amount_list)
 
     # converts the max_amount from usd to sgd by multiplying using the forex variable and assigns to sgd_max_amount
@@ -55,8 +56,8 @@ def overhead_function(forex):
     # opening the summary report to append with a variable 'file' 
     with summary_path.open(mode = 'a', encoding = 'UTF-8', newline = "") as file:
 
-        # append the highest overhead category and sgd amount onto the summary report
-        file.write(f"\n[HIGHEST OVERHEADS] {upper_overheads}: SGD{(sgd_max_amount)}")
+        # append the highest overhead category and sgd amount (1 dp) onto the summary report
+        file.write(f"\n[HIGHEST OVERHEADS] {upper_overheads}: SGD{(round(sgd_max_amount,1))}")
 
 # recalls the overhead function 
 overhead_function(forex)
