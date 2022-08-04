@@ -49,7 +49,7 @@ def profitloss_function(forex):
         # using while loop to run through all the days in the day list
         while index + 1 < len(day_list):
 
-            # if function to check if the earlier float p/l amount is larger than the following day
+            # if function to check if the earlier float net profit amount is larger than the following day
             if float(pl_list[index]) > float(pl_list[index + 1]):
 
                 # calculates the difference between the earlier amount and the following day amount and assigns to a variable pl_deficit

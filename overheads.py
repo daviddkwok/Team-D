@@ -47,7 +47,7 @@ def overhead_function(forex):
     # finding the index position of the max_amount value and assigns to variable, index 
     index = amount_list.index(max_amount)
 
-    # locates the position of the category by using the index position from the overhead list
+    # extracts the category by using the index position from the overhead list
     category = (overhead_list[index])
 
     # converts all the letters in 'category' to uppercase
